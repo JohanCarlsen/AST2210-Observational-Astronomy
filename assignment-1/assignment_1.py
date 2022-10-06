@@ -182,7 +182,7 @@ save=None):
 def gaussian(wavelength, a, b, c, d):
     '''Defining the Gaussian function to be used to fit data'''
 
-    g = a * np.exp(-(wavelength - b)**2 / (2 * c)**2) + d
+    g = a * np.exp(-(wavelength - b)**2 / (2 * c**2)) + d
 
     return g
 
