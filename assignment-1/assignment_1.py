@@ -75,7 +75,7 @@ def plot_intensity(wav_idx, include_points=None, add_patch=None, save=None):
             fontsize='large', color='yellow')
 
     cbar.ax.set_ylabel(r'Intensity')
-    ax.set_title(f'Intensity for $\lambda_i$ = {wav_value} Å')
+    ax.set_title(f'Intensity for $\lambda$ = {wav_value} Å')
     ax.set_xlabel('x [idx]')
     ax.set_ylabel('y [idx]')
 
@@ -116,7 +116,7 @@ def plot_intensity_sub(wav_idx, include_points=None, save=None):
             fontsize='large', color='yellow')
 
     cbar.ax.set_ylabel(r'Intensity')
-    ax.set_title(f'Intensity for $\lambda_i$ = {wav_value} Å of the sub FoV')
+    ax.set_title(f'Intensity for $\lambda$ = {wav_value} Å of the sub FoV')
     ax.set_xlabel('x [idx]')
     ax.set_ylabel('y [idx]')
 
@@ -341,6 +341,10 @@ def doppler_map(title, field_of_view=None, save=None):
 #
 #     plot_spectrum(obs_points[i], obs_names[i], add_average=True, save=True)
 
+'''Plotting the intensity together w/ the points and sub fov'''
+# plot_intensity(2, include_points=True, add_patch=True, save=True)
+# plot_intensity_sub(2, save=True)
+
 '''Plotting the spectre at the points A, B, C and D together
 with the fittet Gauss curve'''
 # for i in range(4):
@@ -362,17 +366,14 @@ with the fittet Gauss curve'''
 '''
 Point	Doppler velocity
 
-	A	 -3744.566 m/s
-	B	  1606.148 m/s
-	C	  1439.322 m/s
-	D	 -2752.272 m/s
+	A	 -3744.610 m/s
+	B	  1606.115 m/s
+	C	  1439.300 m/s
+	D	 -2752.260 m/s
 '''
 
 '''Creating doppler map'''
 # doppler_map('sub FoV', field_of_view='sub', save=True)
 # doppler_map('full FoV', save=True)
-
-
-
 
 plt.show()
