@@ -221,6 +221,9 @@ def fit_gaussian(point=None, average=None):
 
     xaxis_fine = np.linspace(spect_pos[0], spect_pos[-1], 101)
 
+    print(b)
+    print(np.sqrt(np.diag(covariance)))
+
     g = gaussian(xaxis_fine, a, b, c, d)
 
     return parameters, xaxis_fine, g
@@ -342,8 +345,8 @@ def doppler_map(title, field_of_view=None, save=None):
 #     plot_spectrum(obs_points[i], obs_names[i], add_average=True, save=True)
 
 '''Plotting the intensity together w/ the points and sub fov'''
-# plot_intensity(2, include_points=True, add_patch=True, save=True)
-# plot_intensity_sub(2, save=True)
+# plot_intensity(6, include_points=True, add_patch=True, save=True)
+# plot_intensity_sub(6, save=True)
 
 '''Plotting the spectre at the points A, B, C and D together
 with the fittet Gauss curve'''
@@ -376,4 +379,29 @@ Point	Doppler velocity
 # doppler_map('sub FoV', field_of_view='sub', save=True)
 # doppler_map('full FoV', save=True)
 
-plt.show()
+'''Creating intensity plots of all intensities'''
+# fig, axes = plt.subplots(4, 2, sharex='col', sharey='row', figsize=(12, 9))
+# fig.suptitle('Intensity plots for all wavelengths\nin the full FoV')
+#
+# for i in range(2):
+#     for j in range(4):
+#
+#         k = j + (i * 4)
+#
+#         wl = spect_pos[k]
+#         data = idata[:,:,k]
+#
+#         ax = axes[j, i]
+#         ax.grid(False)
+#         ax.imshow(data)
+#         ax.set_ylabel(f'$\lambda_{k+1}$')
+#         ax.set_yticklabels([])
+#         ax.set_xticklabels([])
+#
+# plt.subplots_adjust(wspace=0, hspace=0)
+# plt.savefig('total_intensity.pdf')
+
+for i in range(4):
+    plot_spectrum(obs_points[i], obs_names[i], add_gaussian=True)
+
+# plt.show()
