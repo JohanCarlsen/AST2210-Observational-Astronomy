@@ -1,0 +1,11 @@
+# Files to be excluded
+
+# CLASS files
+*.apex
+
+# Image files
+*.eps
+*.pdf
+
+# Text files
+*.txt
